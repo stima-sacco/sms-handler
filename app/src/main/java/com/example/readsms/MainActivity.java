@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.PendingIntent;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -108,6 +109,11 @@ public class MainActivity extends AppCompatActivity {
             // Permission already granted. Enable the SMS button.
             enableSmsButton();
         }
+    }
+
+    public void retryApp(View view) {
+        Intent intent = getPackageManager().getLaunchIntentForPackage(getPackageName());
+        startActivity(intent);
     }
 
 }
